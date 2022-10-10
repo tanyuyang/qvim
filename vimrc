@@ -173,13 +173,10 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 " 快速切换窗口
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap h <C-w>h
-nnoremap j <C-w>j
-nnoremap k <C-w>k
-nnoremap l <C-w>l
-" 插入模式下，使用补全时，使用ALT键进行补全项的pick
-inoremap n <C-n>
-inoremap p <C-p>
+nnoremap <silent><C-h> <C-w>h
+nnoremap <silent><C-j> <C-w>j
+nnoremap <silent><C-k> <C-w>k
+nnoremap <silent><C-l> <C-w>l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
