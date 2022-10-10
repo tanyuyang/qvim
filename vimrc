@@ -223,6 +223,7 @@ nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
 " Plug 'mhinz/vim-startify'
 " Plug 'easymotion/vim-easymotion'
 " Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdcommenter'
 " Use release branch (recommend)
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
@@ -308,5 +309,6 @@ nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
 " <leader>b	默认占用，搜索当前buffer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 打开MRU列表
-" nnoremap <silent><leader>r :LeaderfMru<CR>
+" nnoremap <silent><leader>m :LeaderfMru<CR>
+" nnoremap <silent><leader>r :LeaderfRgInteractive<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
