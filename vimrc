@@ -137,8 +137,8 @@ set tabline=%!Vim_NeatTabLine()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快速切换标签页
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent><tab>n :tabn<CR>
-nnoremap <silent><tab>p :tabp<CR>
+nnoremap <silent><Tab>p :tabp<CR>
+nnoremap <silent><Tab>n :tabn<CR>
 nnoremap <silent><leader>t :tabnew<CR>
 nnoremap <silent><leader>c :tabclose<CR>
 nnoremap <silent><leader>1 :tabn 1<CR>
@@ -150,8 +150,6 @@ nnoremap <silent><leader>6 :tabn 6<CR>
 nnoremap <silent><leader>7 :tabn 7<CR>
 nnoremap <silent><leader>8 :tabn 8<CR>
 nnoremap <silent><leader>9 :tabn 9<CR>
-nnoremap <silent><s-tab> :tabnext<CR>
-inoremap <silent><s-tab> <ESC>:tabnext<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -172,40 +170,40 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 " 快速切换窗口
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent><C-h> <C-w>h
-nnoremap <silent><C-j> <C-w>j
-nnoremap <silent><C-k> <C-w>k
-nnoremap <silent><C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cscope
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 以下设置来自于vim内置文档的推荐设置，执行:h cscope查阅
+" 以下设置来自于vim内置文档的推荐设置
+" 安装了vim-gutentags插件后，cscope插件就可以淘汰了
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("cscope")
-	set csprg=/usr/bin/cscope
-	set csto=0
-	set cst
-	set nocsverb
-	" add any database in current directory
-	if filereadable("cscope.out")
-	    cs add cscope.out
-	" else add database pointed to by environment
-	elseif $CSCOPE_DB != ""
-	    cs add $CSCOPE_DB
-	endif
-	set csverb
-endif
+" if has("cscope")
+" 	set csprg=/usr/bin/cscope
+" 	set csto=0
+" 	set cst
+" 	set nocsverb
+" 	" add any database in current directory
+" 	if filereadable("cscope.out")
+" 	    cs add cscope.out
+" 	" else add database pointed to by environment
+" 	elseif $CSCOPE_DB != ""
+" 	    cs add $CSCOPE_DB
+" 	endif
+" 	set csverb
+" endif
 
 " 查找C语言符号，即函数名、宏、枚举值等
-nnoremap <F2> :cs f s <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <F2> :cs f s <C-R>=expand("<cword>")<CR><CR>
 " 查找指定的字符串
-nnoremap <F3> :cs f t <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <F3> :cs f t <C-R>=expand("<cword>")<CR><CR>
 " 查找调用本函数的函数
-nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -219,6 +217,7 @@ nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'skywind3000/vim-auto-popmenu'
 " Plug 'skywind3000/vim-dict'
+" Plug 'skywind3000/gutentags_plus'
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'mhinz/vim-startify'
 " Plug 'easymotion/vim-easymotion'
@@ -242,17 +241,59 @@ nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
 " 所生成的数据文件的文件名
 " 文件名 = tags文件的工程绝对路径 + $(gutentags_ctags_tagfile)
 " let g:gutentags_ctags_tagfile = 'tags'
+" 同时开启ctags和gtags支持
+" let g:gutentags_modules = []
+" if executable('ctags')
+" 	let g:gutentags_modules += ['ctags']
+" endif
+" if executable('gtags-cscope') && executable('gtags')
+" 	let g:gutentags_modules += ['gtags_cscope']
+" endif
 " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
 " let s:vim_tags = expand('~/.cache/tags')
 " let g:gutentags_cache_dir = s:vim_tags
-" 配置ctags的参数
-" let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-" let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-" let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 " 检测 ~/.cache/tags 不存在就新建
 " if !isdirectory(s:vim_tags)
 "    silent! call mkdir(s:vim_tags, 'p')
 " endif
+" 配置ctags的参数，老的Exuberant-ctags不能有--extra=+q
+" let g:gutentags_ctags_extra_args = ['--extra=+q']
+" let g:gutentags_ctags_extra_args = ['--fields=+niazS']
+" let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+" let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+" 新的Universal-ctags需要增加下面一行，老的Exuberant-ctags不能加下一行
+" let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
+" 禁用gutentags自动加载gtags数据库的行为
+" let g:gutentags_auto_add_gtags_cscope = 0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" gutentags-plus
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" enable gtags module
+" let g:gutentags_modules = ['ctags', 'gtags_cscope']
+" config project root markers.
+" let g:gutentags_project_root = ['.root']
+" generate datebases in my cache directory, prevent gtags files polluting my project
+" let g:gutentags_cache_dir = expand('~/.cache/tags')
+" change focus to quickfix window after search (optional).
+" let g:gutentags_plus_switch = 1
+" 这个插件默认配置了一些快捷键，比如<leader>cc等，这些快捷键和NERDCommenter插件
+" 的默认的快捷键冲突了，所以更换一下这个插件的快捷键
+" let g:gutentags_plus_nomap = 1
+" noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
+" noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
+" noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
+" noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
+" noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
+" noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+" noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+" noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
+" noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
+" noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
+" 注意：这个插件和NERDTree插件有一点点小冲突，这个插件可能要求vim在打开时
+"       不能有其它buffer存在，所以如果NERDTree配置了自动打开的话，这就有问题了，
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -287,6 +328,8 @@ nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
 " autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Open the existing NERDTree on each new tab.
 " autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+" 下面这行的配置是在打开vim时自动打开NERDTree窗口，但是vim-gutentags插件和这行配置有冲突
+" 所以这行配置不用，每次想看NERDTree窗口时就手动打开
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
@@ -309,6 +352,13 @@ nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
 " <leader>b	默认占用，搜索当前buffer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 打开MRU列表
-" nnoremap <silent><leader>m :LeaderfMru<CR>
+" nnoremap <silent><leader>m :Leaderf! mru<CR>
+" 打开rg模糊搜索的命令行交互界面
 " nnoremap <silent><leader>r :LeaderfRgInteractive<CR>
+" search word under cursor, the pattern is treated as regex, and enter normal mode directly
+" nnoremap <silent><leader>s :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+" search visually selected text literally, don't quit LeaderF after accepting an entry
+" xnoremap <silent><leader>s :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
+" recall last search. If the result window is closed, reopen it.
+" nnoremap <silent><leader>a :<C-U>Leaderf! rg --recall<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
