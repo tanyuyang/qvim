@@ -139,8 +139,8 @@ set tabline=%!Vim_NeatTabLine()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent><Tab>p :tabp<CR>
 nnoremap <silent><Tab>n :tabn<CR>
-nnoremap <silent><leader>t :tabnew<CR>
-nnoremap <silent><leader>c :tabclose<CR>
+nnoremap <silent><leader>tn :tabnew<CR>
+nnoremap <silent><leader>tc :tabclose<CR>
 nnoremap <silent><leader>1 :tabn 1<CR>
 nnoremap <silent><leader>2 :tabn 2<CR>
 nnoremap <silent><leader>3 :tabn 3<CR>
