@@ -269,7 +269,7 @@ nnoremap <C-l> <C-w>l
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" gutentags-plus
+" gutentags_plus
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " enable gtags module
 " let g:gutentags_modules = ['ctags', 'gtags_cscope']
