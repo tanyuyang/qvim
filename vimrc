@@ -364,4 +364,10 @@ nnoremap <C-L> <C-w>l
 " xnoremap <silent><leader>s :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
 " recall last search. If the result window is closed, reopen it.
 " nnoremap <silent><leader>a :<C-U>Leaderf! rg --recall<CR>
+" 插入模式下，如果打开了补全菜单，按<CR>键确认光标下的补全项
+" 如果没有选择任何补全项，按下<CR>键会自动选择第一个补全项并确认它
+" inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" 插入模式下，如果打开了补全菜单，使用tab键可以进行补全项的确认
+" inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+" inoremap <silent><expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
