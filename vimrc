@@ -136,11 +136,15 @@ set tabline=%!Vim_NeatTabLine()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快速切换标签页
+" tabm --- 移动标签页，还缺一个快捷键
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent><Tab>p :tabp<CR>
 nnoremap <silent><Tab>n :tabn<CR>
-nnoremap <silent><leader>tn :tabnew<CR>
-nnoremap <silent><leader>tc :tabclose<CR>
+nnoremap <silent><Tab>t :tabnew<CR>
+nnoremap <silent><Tab>c :tabclose<CR>
+nnoremap <silent><Tab>o :tabonly<CR>
+nnoremap <silent><Tab>f :tabfirst<CR>
+nnoremap <silent><Tab>l :tablast<CR>
 nnoremap <silent><leader>1 :tabn 1<CR>
 nnoremap <silent><leader>2 :tabn 2<CR>
 nnoremap <silent><leader>3 :tabn 3<CR>
@@ -170,10 +174,10 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 " 快速切换窗口
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-H> <C-w>h
+nnoremap <C-J> <C-w>j
+nnoremap <C-K> <C-w>k
+nnoremap <C-L> <C-w>l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -282,18 +286,18 @@ nnoremap <C-l> <C-w>l
 " 这个插件默认配置了一些快捷键，比如<leader>cc等，这些快捷键和NERDCommenter插件
 " 的默认的快捷键冲突了，所以更换一下这个插件的快捷键
 " let g:gutentags_plus_nomap = 1
-" noremap <silent> <leader>gs :GscopeFind s <C-R><C-W><cr>
-" noremap <silent> <leader>gg :GscopeFind g <C-R><C-W><cr>
-" noremap <silent> <leader>gc :GscopeFind c <C-R><C-W><cr>
-" noremap <silent> <leader>gt :GscopeFind t <C-R><C-W><cr>
-" noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>
-" noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-" noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-" noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>
-" noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
-" noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>
-" 注意：这个插件和NERDTree插件有一点点小冲突，这个插件可能要求vim在打开时
-"       不能有其它buffer存在，所以如果NERDTree配置了自动打开的话，这就有问题了，
+" noremap <silent><leader>gs :GscopeFind s <C-R><C-W><cr>
+" noremap <silent><leader>gg :GscopeFind g <C-R><C-W><cr>
+" noremap <silent><leader>gc :GscopeFind c <C-R><C-W><cr>
+" noremap <silent><leader>gt :GscopeFind t <C-R><C-W><cr>
+" noremap <silent><leader>ge :GscopeFind e <C-R><C-W><cr>
+" noremap <silent><leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+" noremap <silent><leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+" noremap <silent><leader>gd :GscopeFind d <C-R><C-W><cr>
+" noremap <silent><leader>ga :GscopeFind a <C-R><C-W><cr>
+" noremap <silent><leader>gz :GscopeFind z <C-R><C-W><cr>
+" 注意：这个插件和NERDTree插件有一点点冲突，这个插件可能要求vim在打开文件时
+"       不能有其它buffer存在，所以如果NERDTree配置了进入vim时自动打开的话，这就有问题了
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -328,8 +332,7 @@ nnoremap <C-l> <C-w>l
 " autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Open the existing NERDTree on each new tab.
 " autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-" 下面这行的配置是在打开vim时自动打开NERDTree窗口，但是vim-gutentags插件和这行配置有冲突
-" 所以这行配置不用，每次想看NERDTree窗口时就手动打开
+" 下面这行配置和gutentags_plus插件有冲突，看情况打开这行配置
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
