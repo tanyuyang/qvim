@@ -336,7 +336,7 @@ nnoremap <C-L> <C-w>l
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
-" nnoremap <F5> :NERDTreeToggle<CR>
+" nnoremap <F5> :NERDTreeToggle<CR><C-w>w
 " inoremap <F5> <ESC>:NERDTreeToggle<CR>
 " 定位当前活动缓冲区
 " nnoremap <F6> :NERDTreeFind<CR>
@@ -364,6 +364,12 @@ nnoremap <C-L> <C-w>l
 " xnoremap <silent><leader>s :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
 " recall last search. If the result window is closed, reopen it.
 " nnoremap <silent><leader>a :<C-U>Leaderf! rg --recall<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" coc.nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插入模式下，如果打开了补全菜单，按<CR>键确认光标下的补全项
 " 如果没有选择任何补全项，按下<CR>键会自动选择第一个补全项并确认它
 " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
