@@ -371,6 +371,7 @@ nnoremap <C-L> <C-w>l
 " coc.nvim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插入模式下，如果打开了补全菜单，按<CR>键确认光标下的补全项
+" inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 " 如果没有选择任何补全项，按下<CR>键会自动选择第一个补全项并确认它
 " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 " 插入模式下，如果打开了补全菜单，使用tab键可以进行补全项的确认
