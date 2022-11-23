@@ -24,6 +24,8 @@ filetype indent on
 
 " 显示行号
 set number
+" 设置标号列的显示模式
+" set signcolumn=yes
 " 显示模式
 set showmode
 " 显示命令
@@ -50,6 +52,7 @@ set nowrapscan
 set hidden
 " 禁止产生备份文件
 set nobackup
+set nowritebackup
 " 禁止产生交换文件
 set noswapfile
 " 在命令行模式中使用tab键补全时列出所有的可选项
@@ -354,6 +357,10 @@ nnoremap <C-L> <C-w>l
 " <leader>f	默认占用，搜索文件
 " <leader>b	默认占用，搜索当前buffer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:Lf_HideHelp = 1
+" let g:Lf_UseCache = 0
+" let g:Lf_UseVersionControlTool = 0
+" let g:Lf_IgnoreCurrentBufferName = 1
 " 打开MRU列表
 " nnoremap <silent><leader>m :Leaderf! mru<CR>
 " 打开rg模糊搜索的命令行交互界面

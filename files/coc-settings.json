@@ -1,3 +1,5 @@
 {
-	"clangd.disableDiagnostics": true
+	"clangd.disableDiagnostics": true,
+	"diagnostic.enable":false,
+	"suggest.noselect":true
 }
