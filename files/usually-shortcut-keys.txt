@@ -1,4 +1,4 @@
-非插件自带的快捷键：
+快捷键：
 F2 ----- cscope f s，查找c语言符号出现过的地方
 F3 ----- cscope f t，查找字符串
 F4 ----- cscope f c，查找调用本函数的函数
@@ -11,15 +11,13 @@ F6 ----- NERDTreeFind
 <tab>o ----- 关闭除当前标签的所有标签
 <tab>f ----- 移动到第一个标签
 <tab>l ----- 移动到最后一个标签
-<leader>1 ----- 
-<leader>2 ----- 
-<leader>3 ----- 
-<leader>4 ----- 
-<leader>5 ----- 
-<leader>6 ----- 
-<leader>7 ----- 
-<leader>8 ----- 
-<leader>9 ----- 
+<leader>{1-9} -----
+ctrl + f ----- 向前（下）翻一页
+ctrl + b ----- 向后（上）翻一页
+ctrl + d ----- 向前（下）翻半页
+ctrl + u ----- 向后（上）翻半页
+ctrl + e ----- 向前（下）翻一行
+ctrl + y ----- 向后（上）翻一行
 
 
 NERDCommentenr插件：
