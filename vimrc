@@ -339,11 +339,11 @@ nnoremap <C-L> <C-w>l
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
-" nnoremap <F5> :NERDTreeToggle<CR><C-w>w
-" inoremap <F5> <ESC>:NERDTreeToggle<CR>
+" nnoremap <M-t> :NERDTreeToggle<CR><C-w>w
+" inoremap <M-t> <ESC>:NERDTreeToggle<CR><C-w>w
 " 定位当前活动缓冲区
-" nnoremap <F6> :NERDTreeFind<CR>
-" inoremap <F6> <ESC>:NERDTreeFind<CR>
+" nnoremap <M-f> :NERDTreeFind<CR><C-w>w
+" inoremap <M-f> <ESC>:NERDTreeFind<CR><C-w>w
 " 右边显示
 " let g:NERDTreeWinPos='right'
 " 忽略以下文件的显示
@@ -434,10 +434,10 @@ endfunc
 
 call Terminal_MetaMode(0)
 
-" nnoremap <M-d> <C-d>
-" nnoremap <M-u> <C-u>
-nnoremap <M-f> <C-f>
-nnoremap <M-b> <C-b>
+nnoremap <M-d> <C-d>
+nnoremap <M-u> <C-u>
+" nnoremap <M-f> <C-f>
+" nnoremap <M-b> <C-b>
 " nnoremap <M-e> <C-e>
 " nnoremap <M-y> <C-y>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
