@@ -61,7 +61,7 @@ set wildmode=longest,list
 set cursorline
 
 " 使用配色方案
-colorscheme molokai
+" colorscheme molokai
 
 " 设置tags文件的路径
 set tags=./tags;,tags
@@ -181,6 +181,9 @@ nmap <M-h> <C-w>h
 nmap <M-j> <C-w>j
 nmap <M-k> <C-w>k
 nmap <M-l> <C-w>l
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>x :x<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -342,8 +345,8 @@ nmap <M-l> <C-w>l
 " nnoremap <M-t> :NERDTreeToggle<CR><C-w>w
 " inoremap <M-t> <ESC>:NERDTreeToggle<CR><C-w>w
 " 定位当前活动缓冲区
-" nnoremap <M-f> :NERDTreeFind<CR><C-w>w
-" inoremap <M-f> <ESC>:NERDTreeFind<CR><C-w>w
+" nnoremap <M-f> :NERDTreeFind<CR>
+" inoremap <M-f> <ESC>:NERDTreeFind<CR>
 " 右边显示
 " let g:NERDTreeWinPos='right'
 " 忽略以下文件的显示
