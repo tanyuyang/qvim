@@ -139,24 +139,11 @@ set tabline=%!Vim_NeatTabLine()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快速切换标签页
-" tabm --- 移动标签页，还缺一个快捷键
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent><Tab>p :tabp<CR>
-nnoremap <silent><Tab>n :tabn<CR>
-nnoremap <silent><Tab>t :tabnew<CR>
-nnoremap <silent><Tab>c :tabclose<CR>
-nnoremap <silent><Tab>o :tabonly<CR>
-nnoremap <silent><Tab>f :tabfirst<CR>
-nnoremap <silent><Tab>l :tablast<CR>
-nnoremap <silent><leader>1 :tabn 1<CR>
-nnoremap <silent><leader>2 :tabn 2<CR>
-nnoremap <silent><leader>3 :tabn 3<CR>
-nnoremap <silent><leader>4 :tabn 4<CR>
-nnoremap <silent><leader>5 :tabn 5<CR>
-nnoremap <silent><leader>6 :tabn 6<CR>
-nnoremap <silent><leader>7 :tabn 7<CR>
-nnoremap <silent><leader>8 :tabn 8<CR>
-nnoremap <silent><leader>9 :tabn 9<CR>
+nnoremap <silent><M-p> :tabp<CR>
+nnoremap <silent><M-n> :tabn<CR>
+nnoremap <silent><TAB>n :tabnew<CR>
+nnoremap <silent><TAB>o :tabonly<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -181,6 +168,7 @@ nmap <M-h> <C-w>h
 nmap <M-j> <C-w>j
 nmap <M-k> <C-w>k
 nmap <M-l> <C-w>l
+nmap <M-w> <C-w>w
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :x<CR>
@@ -342,11 +330,9 @@ nnoremap <leader>x :x<CR>
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
-" nnoremap <M-t> :NERDTreeToggle<CR><C-w>w
-" inoremap <M-t> <ESC>:NERDTreeToggle<CR><C-w>w
+" nnoremap <M-t> :NERDTreeToggle<CR>
 " 定位当前活动缓冲区
 " nnoremap <M-f> :NERDTreeFind<CR>
-" inoremap <M-f> <ESC>:NERDTreeFind<CR>
 " 右边显示
 " let g:NERDTreeWinPos='right'
 " 忽略以下文件的显示
@@ -436,11 +422,4 @@ function! Terminal_MetaMode(mode)
 endfunc
 
 call Terminal_MetaMode(0)
-
-nnoremap <M-d> <C-d>
-nnoremap <M-u> <C-u>
-" nnoremap <M-f> <C-f>
-" nnoremap <M-b> <C-b>
-" nnoremap <M-e> <C-e>
-" nnoremap <M-y> <C-y>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

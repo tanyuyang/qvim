@@ -2,23 +2,22 @@
 F2 ----- cscope f s，查找c语言符号出现过的地方
 F3 ----- cscope f t，查找字符串
 F4 ----- cscope f c，查找调用本函数的函数
-F5 ----- NERDTreeToggle
-F6 ----- NERDTreeFind
-<tab>p ----- 移动到上一个标签
-<tab>n ----- 移动到下一个标签
-<tab>t ----- 开启一个新的标签
-<tab>c ----- 关闭当前标签
+<M-t> ----- NERDTreeToggle
+<M-f> ----- NERDTreeFind
+<M-p> ----- 移动到上一个标签
+<M-n> ----- 移动到下一个标签
+<tab>n ----- 开启一个新的标签
 <tab>o ----- 关闭除当前标签的所有标签
 <tab>f ----- 移动到第一个标签
 <tab>l ----- 移动到最后一个标签
-<leader>{1-9} -----
-ctrl + f ----- 向前（下）翻一页
-ctrl + b ----- 向后（上）翻一页
-ctrl + d ----- 向前（下）翻半页
-ctrl + u ----- 向后（上）翻半页
-ctrl + e ----- 向前（下）翻一行
-ctrl + y ----- 向后（上）翻一行
-
+<M-h>
+<M-j>
+<M-k>
+<M-l>
+<M-w>
+<leader>q
+<leader>w
+<leader>x
 
 NERDCommentenr插件：
 <leader>cc ----- 注释
