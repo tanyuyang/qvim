@@ -140,8 +140,8 @@ set tabline=%!Vim_NeatTabLine()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快速切换标签页
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent><M-p> :tabp<CR>
-nnoremap <silent><M-n> :tabn<CR>
+nnoremap <silent><TAB>h :tabprevious<CR>
+nnoremap <silent><TAB>l :tabnext<CR>
 nnoremap <silent><TAB>n :tabnew<CR>
 nnoremap <silent><TAB>o :tabonly<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -154,6 +154,7 @@ nnoremap <silent><TAB>o :tabonly<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 " 插入模式下，按下jj相当于esc
 inoremap jj <esc>
+inoremap JJ <esc>
 " 禁用箭头键
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
@@ -169,9 +170,6 @@ nmap <M-j> <C-w>j
 nmap <M-k> <C-w>k
 nmap <M-l> <C-w>l
 nmap <M-w> <C-w>w
-nnoremap <leader>q :q<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>x :x<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
