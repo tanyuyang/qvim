@@ -154,7 +154,6 @@ nnoremap <silent><TAB>o :tabonly<CR>
 cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 " 插入模式下，按下jj相当于esc
 inoremap jj <esc>
-inoremap JJ <esc>
 " 禁用箭头键
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
@@ -169,7 +168,6 @@ nmap <M-h> <C-w>h
 nmap <M-j> <C-w>j
 nmap <M-k> <C-w>k
 nmap <M-l> <C-w>l
-nmap <M-w> <C-w>w
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
