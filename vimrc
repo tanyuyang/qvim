@@ -164,10 +164,10 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 " 快速切换窗口
-nmap <M-h> <C-w>h
-nmap <M-j> <C-w>j
-nmap <M-k> <C-w>k
-nmap <M-l> <C-w>l
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -326,9 +326,9 @@ nmap <M-l> <C-w>l
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
-" nnoremap <M-t> :NERDTreeToggle<CR>
+" nnoremap <leader>nt :NERDTreeToggle<CR>
 " 定位当前活动缓冲区
-" nnoremap <M-f> :NERDTreeFind<CR>
+" nnoremap <leader>nf :NERDTreeFind<CR>
 " 右边显示
 " let g:NERDTreeWinPos='right'
 " 忽略以下文件的显示
