@@ -217,6 +217,7 @@ nmap <C-l> <C-w>l
 " Plug 'easymotion/vim-easymotion'
 " Plug 'preservim/nerdtree'
 " Plug 'preservim/nerdcommenter'
+" Plug 'voldikss/vim-floaterm'
 " Use release branch (recommend)
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
@@ -356,6 +357,13 @@ nmap <C-l> <C-w>l
 " xnoremap <silent><leader>s :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
 " recall last search. If the result window is closed, reopen it.
 " nnoremap <silent><leader>a :<C-U>Leaderf! rg --recall<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" floaterm
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:floaterm_keymap_toggle = '<leader>tt'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
