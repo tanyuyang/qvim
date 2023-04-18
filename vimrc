@@ -218,6 +218,8 @@ nmap <C-l> <C-w>l
 " Plug 'preservim/nerdtree'
 " Plug 'preservim/nerdcommenter'
 " Plug 'voldikss/vim-floaterm'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 " Use release branch (recommend)
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
@@ -364,6 +366,16 @@ nmap <C-l> <C-w>l
 " floaterm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:floaterm_keymap_toggle = '<leader>tt'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ultisnips
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
