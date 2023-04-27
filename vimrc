@@ -212,14 +212,10 @@ nmap <C-l> <C-w>l
 " Plug 'skywind3000/vim-auto-popmenu'
 " Plug 'skywind3000/vim-dict'
 " Plug 'skywind3000/gutentags_plus'
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'mhinz/vim-startify'
-" Plug 'easymotion/vim-easymotion'
 " Plug 'preservim/nerdtree'
 " Plug 'preservim/nerdcommenter'
-" Plug 'voldikss/vim-floaterm'
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+" Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/vim-gitbranch'
 " Use release branch (recommend)
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "
@@ -363,23 +359,6 @@ nmap <C-l> <C-w>l
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" floaterm
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:floaterm_keymap_toggle = '<leader>tt'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ultisnips
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插入模式下，如果打开了补全菜单，按<CR>键确认光标下的补全项
@@ -389,6 +368,22 @@ let g:UltiSnipsEditSplit="vertical"
 " 插入模式下，如果打开了补全菜单，使用tab键可以进行补全项的确认
 " inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 " inoremap <silent><expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" lightline.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 在linghtline.vim插件中显示git分支，但不安装完整的git集成插件
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

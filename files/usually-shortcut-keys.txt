@@ -28,10 +28,6 @@ NERDCommentenr插件：
 <leader>cy ----- 先复制再注释
 
 
-vim-floaterm插件：
-<leader>tt ----- 打开/关闭floaterm窗口
-
-
 LeadefF插件：
 <leader>f ----- 查找文件
 <leader>b ----- 列出buffer
