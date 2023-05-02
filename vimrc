@@ -1,6 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM Version : VIM 8.0
 " My Name     : TYY
+" VIM Version : VIM 8.0
+" Description : Not support GUI
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -140,10 +141,22 @@ set tabline=%!Vim_NeatTabLine()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快速切换标签页
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent><TAB>h :tabprevious<CR>
-nnoremap <silent><TAB>l :tabnext<CR>
-nnoremap <silent><TAB>n :tabnew<CR>
-nnoremap <silent><TAB>o :tabonly<CR>
+nnoremap <silent><A-t> :tabnew<CR>
+nnoremap <silent><A-o> :tabonly<CR>
+nnoremap <silent><A-c> :tabclose<CR>
+nnoremap <silent><A-,> :tabprevious<CR>
+nnoremap <silent><A-.> :tabnext<CR>
+" 以下配置在gnome-terminal中无用，因为gnome-terminal也利用ALT键切换标签页
+" 但是在其它终端链接软件中兴许有用，比如Mobaxterm
+nnoremap <silent><A-1>  :tabn 1<CR>
+nnoremap <silent><A-2>  :tabn 2<CR>
+nnoremap <silent><A-3>  :tabn 3<CR>
+nnoremap <silent><A-4>  :tabn 4<CR>
+nnoremap <silent><A-5>  :tabn 5<CR>
+nnoremap <silent><A-6>  :tabn 6<CR>
+nnoremap <silent><A-7>  :tabn 7<CR>
+nnoremap <silent><A-8>  :tabn 8<CR>
+nnoremap <silent><A-9>  :tabn 9<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
