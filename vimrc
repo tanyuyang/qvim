@@ -325,9 +325,9 @@ nmap <C-l> <C-w>l
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
-" nnoremap <leader>nt :NERDTreeToggle<CR>
+" nnoremap <leader>t :NERDTreeToggle<CR>
 " 定位当前活动缓冲区
-" nnoremap <leader>nf :NERDTreeFind<CR>
+" nnoremap <leader>g :NERDTreeFind<CR>
 " 右边显示
 " let g:NERDTreeWinPos='right'
 " 忽略以下文件的显示
@@ -375,15 +375,15 @@ nmap <C-l> <C-w>l
 " lightline.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 在linghtline.vim插件中显示git分支，但不安装完整的git集成插件
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
+" let g:lightline = {
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+"       \ },
+"       \ 'component_function': {
+"       \   'gitbranch': 'gitbranch#name'
+"       \ },
+"       \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
