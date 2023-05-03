@@ -225,6 +225,7 @@ nmap <C-l> <C-w>l
 " Plug 'skywind3000/vim-auto-popmenu'
 " Plug 'skywind3000/vim-dict'
 " Plug 'skywind3000/gutentags_plus'
+" Plug 'mhinz/vim-startify'
 " Plug 'preservim/nerdtree'
 " Plug 'preservim/nerdcommenter'
 " Plug 'itchyny/lightline.vim'
@@ -381,6 +382,14 @@ nmap <C-l> <C-w>l
 " 插入模式下，如果打开了补全菜单，使用tab键可以进行补全项的确认
 " inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 " inoremap <silent><expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-startify
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 打开文件或书签时，不要将工作目录切换到文件所在的目录
+" let g:startify_change_to_dir = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
