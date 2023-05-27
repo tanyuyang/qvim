@@ -9,6 +9,7 @@ LeadefF插件：
 <leader>f ----- 查找文件
 <leader>b ----- 列出buffer
 <leader>m ----- 列出MRU
+<leader>e ----- 列出当前文件里的所有函数
 <leader>s ----- 搜索光标下的字符串，可视模式和普通模式都可以用
 <leader>r ----- 打开leader rg的命令行交互窗口
 <leader>a ----- 打开上一次leader rg的搜索结果

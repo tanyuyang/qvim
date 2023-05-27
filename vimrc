@@ -140,23 +140,24 @@ set tabline=%!Vim_NeatTabLine()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快速切换标签页
+" 2023.5.27更新：删除ALT键的配置，本来也没发挥多大作用
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent><A-t> :tabnew<CR>
-nnoremap <silent><A-o> :tabonly<CR>
-nnoremap <silent><A-c> :tabclose<CR>
-nnoremap <silent><A-,> :tabprevious<CR>
-nnoremap <silent><A-.> :tabnext<CR>
+" nnoremap <silent><A-t> :tabnew<CR>
+" nnoremap <silent><A-o> :tabonly<CR>
+" nnoremap <silent><A-c> :tabclose<CR>
+" nnoremap <silent><A-,> :tabprevious<CR>
+" nnoremap <silent><A-.> :tabnext<CR>
 " 以下配置在gnome-terminal中无用，因为gnome-terminal也利用ALT键切换标签页
 " 但是在其它终端链接软件中兴许有用，比如Mobaxterm
-nnoremap <silent><A-1>  :tabn 1<CR>
-nnoremap <silent><A-2>  :tabn 2<CR>
-nnoremap <silent><A-3>  :tabn 3<CR>
-nnoremap <silent><A-4>  :tabn 4<CR>
-nnoremap <silent><A-5>  :tabn 5<CR>
-nnoremap <silent><A-6>  :tabn 6<CR>
-nnoremap <silent><A-7>  :tabn 7<CR>
-nnoremap <silent><A-8>  :tabn 8<CR>
-nnoremap <silent><A-9>  :tabn 9<CR>
+" nnoremap <silent><A-1>  :tabn 1<CR>
+" nnoremap <silent><A-2>  :tabn 2<CR>
+" nnoremap <silent><A-3>  :tabn 3<CR>
+" nnoremap <silent><A-4>  :tabn 4<CR>
+" nnoremap <silent><A-5>  :tabn 5<CR>
+" nnoremap <silent><A-6>  :tabn 6<CR>
+" nnoremap <silent><A-7>  :tabn 7<CR>
+" nnoremap <silent><A-8>  :tabn 8<CR>
+" nnoremap <silent><A-9>  :tabn 9<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -211,6 +212,15 @@ nmap <C-l> <C-w>l
 " nnoremap <F3> :cs f t <C-R>=expand("<cword>")<CR><CR>
 " 查找调用本函数的函数
 " nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" gtags
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 如果安装了global，global有三个命令：global gtags gtags-cscope
+" 其中gtags-cscope可以生成类似于cscope的数据库
+" 要想更好的使用gtags-cscope生成的数据库，还需要安装gutentags_plugs插件
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -278,27 +288,12 @@ nmap <C-l> <C-w>l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " gutentags_plus
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" enable gtags module
-" let g:gutentags_modules = ['ctags', 'gtags_cscope']
-" config project root markers.
-" let g:gutentags_project_root = ['.root']
-" generate datebases in my cache directory, prevent gtags files polluting my project
-" let g:gutentags_cache_dir = expand('~/.cache/tags')
-" change focus to quickfix window after search (optional).
-" let g:gutentags_plus_switch = 1
-" 这个插件默认配置了一些快捷键，比如<leader>cc等，这些快捷键和NERDCommenter插件
-" 的默认的快捷键冲突了，所以更换一下这个插件的快捷键
-" let g:gutentags_plus_nomap = 1
-" noremap <silent><leader>gs :GscopeFind s <C-R><C-W><cr>
-" noremap <silent><leader>gg :GscopeFind g <C-R><C-W><cr>
-" noremap <silent><leader>gc :GscopeFind c <C-R><C-W><cr>
-" noremap <silent><leader>gt :GscopeFind t <C-R><C-W><cr>
-" noremap <silent><leader>ge :GscopeFind e <C-R><C-W><cr>
-" noremap <silent><leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-" noremap <silent><leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-" noremap <silent><leader>gd :GscopeFind d <C-R><C-W><cr>
-" noremap <silent><leader>ga :GscopeFind a <C-R><C-W><cr>
-" noremap <silent><leader>gz :GscopeFind z <C-R><C-W><cr>
+" 虽然gtags自带对cscope的支持，gutentags也配置了生成类似cscope的数据库
+" 但是还需要自动添加gtags-cscope数据库的插件，这个插件就是gutentags_plus
+" 先取消插件的默认映射
+let g:gutentags_plus_nomap = 1
+" 查找调用本函数的函数
+noremap <silent> <leader>c :GscopeFind c <C-R><C-W><cr>
 " 注意：这个插件和NERDTree插件有一点点冲突，这个插件可能要求vim在打开文件时
 "       不能有其它buffer存在，所以如果NERDTree配置了进入vim时自动打开的话，这就有问题了
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -361,6 +356,8 @@ nmap <C-l> <C-w>l
 " let g:Lf_IgnoreCurrentBufferName = 1
 " 打开MRU列表
 " nnoremap <silent><leader>m :Leaderf! mru<CR>
+" 打开Function列表
+" nnoremap <silent><leader>e :Leaderf! function<CR>
 " 打开rg模糊搜索的命令行交互界面
 " nnoremap <silent><leader>r :LeaderfRgInteractive<CR>
 " search word under cursor, the pattern is treated as regex, and enter normal mode directly
@@ -412,47 +409,48 @@ nmap <C-l> <C-w>l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 配置ALT键相关的快捷键，参考自韦易笑的博客
 " 由于某些原因，vim必须添加下面一段配置，才能正确识别ALT键
+" 2023.5.27 更新：这段代码要注释掉，不知为何它会影响F4的映射
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! Terminal_MetaMode(mode)
-    set ttimeout
-    if $TMUX != ''
-        set ttimeoutlen=30
-    elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
-        set ttimeoutlen=80
-    endif
-    if has('nvim') || has('gui_running')
-        return
-    endif
-    function! s:metacode(mode, key)
-        if a:mode == 0
-            exec "set <M-".a:key.">=\e".a:key
-        else
-            exec "set <M-".a:key.">=\e]{0}".a:key."~"
-        endif
-    endfunc
-    for i in range(10)
-        call s:metacode(a:mode, nr2char(char2nr('0') + i))
-    endfor
-    for i in range(26)
-        call s:metacode(a:mode, nr2char(char2nr('a') + i))
-        call s:metacode(a:mode, nr2char(char2nr('A') + i))
-    endfor
-    if a:mode != 0
-        for c in [',', '.', '/', ';', '[', ']', '{', '}']
-            call s:metacode(a:mode, c)
-        endfor
-        for c in ['?', ':', '-', '_']
-            call s:metacode(a:mode, c)
-        endfor
-    else
-        for c in [',', '.', '/', ';', '{', '}']
-            call s:metacode(a:mode, c)
-        endfor
-        for c in ['?', ':', '-', '_']
-            call s:metacode(a:mode, c)
-        endfor
-    endif
-endfunc
-
-call Terminal_MetaMode(0)
+" function! Terminal_MetaMode(mode)
+"     set ttimeout
+"     if $TMUX != ''
+"         set ttimeoutlen=30
+"     elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
+"         set ttimeoutlen=80
+"     endif
+"     if has('nvim') || has('gui_running')
+"         return
+"     endif
+"     function! s:metacode(mode, key)
+"         if a:mode == 0
+"             exec "set <M-".a:key.">=\e".a:key
+"         else
+"             exec "set <M-".a:key.">=\e]{0}".a:key."~"
+"         endif
+"     endfunc
+"     for i in range(10)
+"         call s:metacode(a:mode, nr2char(char2nr('0') + i))
+"     endfor
+"     for i in range(26)
+"         call s:metacode(a:mode, nr2char(char2nr('a') + i))
+"         call s:metacode(a:mode, nr2char(char2nr('A') + i))
+"     endfor
+"     if a:mode != 0
+"         for c in [',', '.', '/', ';', '[', ']', '{', '}']
+"             call s:metacode(a:mode, c)
+"         endfor
+"         for c in ['?', ':', '-', '_']
+"             call s:metacode(a:mode, c)
+"         endfor
+"     else
+"         for c in [',', '.', '/', ';', '{', '}']
+"             call s:metacode(a:mode, c)
+"         endfor
+"         for c in ['?', ':', '-', '_']
+"             call s:metacode(a:mode, c)
+"         endfor
+"     endif
+" endfunc
+" 
+" call Terminal_MetaMode(0)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
