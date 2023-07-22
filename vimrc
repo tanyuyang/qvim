@@ -25,8 +25,6 @@ filetype indent on
 
 " 显示行号
 set number
-" 设置标号列的显示模式
-" set signcolumn=yes
 " 显示模式
 set showmode
 " 显示命令
@@ -53,7 +51,6 @@ set nowrapscan
 set hidden
 " 禁止产生备份文件
 set nobackup
-set nowritebackup
 " 禁止产生交换文件
 set noswapfile
 " 在命令行模式中使用tab键补全时列出所有的可选项
@@ -164,8 +161,6 @@ set tabline=%!Vim_NeatTabLine()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " all kinds of mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 底行模式下，按下%%时自动展开为当前活动缓冲区的路径
-cnoremap <expr> %% getcmdtype( ) == ':' ? expand('%:h').'/' : '%%'
 " 插入模式下，按下jj相当于esc
 inoremap jj <esc>
 " 禁用箭头键
@@ -291,9 +286,9 @@ nmap <C-l> <C-w>l
 " 虽然gtags自带对cscope的支持，gutentags也配置了生成类似cscope的数据库
 " 但是还需要自动添加gtags-cscope数据库的插件，这个插件就是gutentags_plus
 " 先取消插件的默认映射
-let g:gutentags_plus_nomap = 1
+" let g:gutentags_plus_nomap = 1
 " 查找调用本函数的函数
-noremap <silent> <leader>c :GscopeFind c <C-R><C-W><cr>
+" noremap <silent> <leader>c :GscopeFind c <C-R><C-W><cr>
 " 注意：这个插件和NERDTree插件有一点点冲突，这个插件可能要求vim在打开文件时
 "       不能有其它buffer存在，所以如果NERDTree配置了进入vim时自动打开的话，这就有问题了
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -393,7 +388,7 @@ noremap <silent> <leader>c :GscopeFind c <C-R><C-W><cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " lightline.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 在linghtline.vim插件中显示git分支，但不安装完整的git集成插件
+" 在statusline中显式当前git仓库的分支
 " let g:lightline = {
 "       \ 'active': {
 "       \   'left': [ [ 'mode', 'paste' ],
@@ -405,52 +400,3 @@ noremap <silent> <leader>c :GscopeFind c <C-R><C-W><cr>
 "       \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 配置ALT键相关的快捷键，参考自韦易笑的博客
-" 由于某些原因，vim必须添加下面一段配置，才能正确识别ALT键
-" 2023.5.27 更新：这段代码要注释掉，不知为何它会影响F4的映射
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" function! Terminal_MetaMode(mode)
-"     set ttimeout
-"     if $TMUX != ''
-"         set ttimeoutlen=30
-"     elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
-"         set ttimeoutlen=80
-"     endif
-"     if has('nvim') || has('gui_running')
-"         return
-"     endif
-"     function! s:metacode(mode, key)
-"         if a:mode == 0
-"             exec "set <M-".a:key.">=\e".a:key
-"         else
-"             exec "set <M-".a:key.">=\e]{0}".a:key."~"
-"         endif
-"     endfunc
-"     for i in range(10)
-"         call s:metacode(a:mode, nr2char(char2nr('0') + i))
-"     endfor
-"     for i in range(26)
-"         call s:metacode(a:mode, nr2char(char2nr('a') + i))
-"         call s:metacode(a:mode, nr2char(char2nr('A') + i))
-"     endfor
-"     if a:mode != 0
-"         for c in [',', '.', '/', ';', '[', ']', '{', '}']
-"             call s:metacode(a:mode, c)
-"         endfor
-"         for c in ['?', ':', '-', '_']
-"             call s:metacode(a:mode, c)
-"         endfor
-"     else
-"         for c in [',', '.', '/', ';', '{', '}']
-"             call s:metacode(a:mode, c)
-"         endfor
-"         for c in ['?', ':', '-', '_']
-"             call s:metacode(a:mode, c)
-"         endfor
-"     endif
-" endfunc
-" 
-" call Terminal_MetaMode(0)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
