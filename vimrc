@@ -67,98 +67,6 @@ set tags=./tags;,tags
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 默认的标签文件包含文件路径，十分凌乱，配置其只显示文件名
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" make tabline in terminal mode
-function! Vim_NeatTabLine()
-    let s = ''
-    for i in range(tabpagenr('$'))
-        " select the highlighting
-        if i + 1 == tabpagenr()
-            let s .= '%#TabLineSel#'
-        else
-            let s .= '%#TabLine#'
-        endif
-        " set the tab page number (for mouse clicks)
-        let s .= '%' . (i + 1) . 'T'
-        " the label is made by MyTabLabel()
-        let s .= ' %{Vim_NeatTabLabel(' . (i + 1) . ')} '
-    endfor
-    " after the last tab fill with TabLineFill and reset tab page nr
-    let s .= '%#TabLineFill#%T'
-    " right-align the label to close the current tab page
-    if tabpagenr('$') > 1
-        let s .= '%=%#TabLine#%999XX'
-    endif
-    return s
-endfunc
-
-" get a single tab name
-function! Vim_NeatBuffer(bufnr, fullname)
-    let l:name = bufname(a:bufnr)
-    if getbufvar(a:bufnr, '&modifiable')
-        if l:name == ''
-            return '[No Name]'
-        else
-            if a:fullname
-                return fnamemodify(l:name, ':p')
-            else
-                return fnamemodify(l:name, ':t')
-            endif
-        endif
-    else
-        let l:buftype = getbufvar(a:bufnr, '&buftype')
-        if l:buftype == 'quickfix'
-            return '[Quickfix]'
-        elseif l:name != ''
-            if a:fullname
-                return '-'.fnamemodify(l:name, ':p')
-            else
-                return '-'.fnamemodify(l:name, ':t')
-            endif
-        else
-        endif
-        return '[No Name]'
-    endif
-endfunc
-
-" get a single tab label
-function! Vim_NeatTabLabel(n)
-    let l:buflist = tabpagebuflist(a:n)
-    let l:winnr = tabpagewinnr(a:n)
-    let l:bufnr = l:buflist[l:winnr - 1]
-    return Vim_NeatBuffer(l:bufnr, 0)
-endfunc
-
-" setup new tabline
-set tabline=%!Vim_NeatTabLine()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 快速切换标签页
-" 2023.5.27更新：删除ALT键的配置，本来也没发挥多大作用
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nnoremap <silent><A-t> :tabnew<CR>
-" nnoremap <silent><A-o> :tabonly<CR>
-" nnoremap <silent><A-c> :tabclose<CR>
-" nnoremap <silent><A-,> :tabprevious<CR>
-" nnoremap <silent><A-.> :tabnext<CR>
-" 以下配置在gnome-terminal中无用，因为gnome-terminal也利用ALT键切换标签页
-" 但是在其它终端链接软件中兴许有用，比如Mobaxterm
-" nnoremap <silent><A-1>  :tabn 1<CR>
-" nnoremap <silent><A-2>  :tabn 2<CR>
-" nnoremap <silent><A-3>  :tabn 3<CR>
-" nnoremap <silent><A-4>  :tabn 4<CR>
-" nnoremap <silent><A-5>  :tabn 5<CR>
-" nnoremap <silent><A-6>  :tabn 6<CR>
-" nnoremap <silent><A-7>  :tabn 7<CR>
-" nnoremap <silent><A-8>  :tabn 8<CR>
-" nnoremap <silent><A-9>  :tabn 9<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " all kinds of mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插入模式下，按下jj相当于esc
@@ -184,7 +92,6 @@ nmap <C-l> <C-w>l
 " cscope
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 以下设置来自于vim内置文档的推荐设置
-" 安装了vim-gutentags插件后，cscope插件就可以淘汰了
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " if has("cscope")
 " 	set csprg=/usr/bin/cscope
@@ -201,12 +108,8 @@ nmap <C-l> <C-w>l
 " 	set csverb
 " endif
 
-" 查找C语言符号，即函数名、宏、枚举值等
-" nnoremap <F2> :cs f s <C-R>=expand("<cword>")<CR><CR>
-" 查找指定的字符串
-" nnoremap <F3> :cs f t <C-R>=expand("<cword>")<CR><CR>
 " 查找调用本函数的函数
-" nnoremap <F4> :cs f c <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <silent><leader>c :cs f c <C-R>=expand("<cword>")<CR><CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -253,11 +156,12 @@ nmap <C-l> <C-w>l
 " 所生成的数据文件的文件名
 " 文件名 = tags文件的工程绝对路径 + $(gutentags_ctags_tagfile)
 " let g:gutentags_ctags_tagfile = 'tags'
-" 同时开启ctags和gtags支持
+" 可以配置gutentags插件同时支持ctags和gtags
 " let g:gutentags_modules = []
 " if executable('ctags')
 " 	let g:gutentags_modules += ['ctags']
 " endif
+" 建议还是不要打开对gtags的支持了，cscope足够使用了
 " if executable('gtags-cscope') && executable('gtags')
 " 	let g:gutentags_modules += ['gtags_cscope']
 " endif
@@ -352,7 +256,9 @@ nmap <C-l> <C-w>l
 " 打开MRU列表
 " nnoremap <silent><leader>m :Leaderf! mru<CR>
 " 打开Function列表
-" nnoremap <silent><leader>e :Leaderf! function<CR>
+" nnoremap <silent><leader>z :Leaderf! function<CR>
+" 打开Tag列表
+" nnoremap <silent><leader>v :Leaderf! bufTag<CR>
 " 打开rg模糊搜索的命令行交互界面
 " nnoremap <silent><leader>r :LeaderfRgInteractive<CR>
 " search word under cursor, the pattern is treated as regex, and enter normal mode directly
@@ -400,3 +306,21 @@ nmap <C-l> <C-w>l
 "       \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" change tab quickly
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nnoremap <silent><leader>1 :tabn 1<CR>
+" nnoremap <silent><leader>2 :tabn 2<CR>
+" nnoremap <silent><leader>3 :tabn 3<CR>
+" nnoremap <silent><leader>4 :tabn 4<CR>
+" nnoremap <silent><leader>5 :tabn 5<CR>
+" nnoremap <silent><leader>6 :tabn 6<CR>
+" nnoremap <silent><leader>7 :tabn 7<CR>
+" nnoremap <silent><leader>8 :tabn 8<CR>
+" nnoremap <silent><leader>9 :tabn 9<CR>
+" nnoremap <silent><leader>0 :tabn 10<CR>
+" nnoremap <silent><F5> :tabprevious<CR>
+" nnoremap <silent><F6> :tabnext<CR>
+" nnoremap <silent><F7> :tabclose<CR>
+" nnoremap <silent><F8> :tabonly<CR>
