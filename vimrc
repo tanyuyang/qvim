@@ -35,8 +35,12 @@ set ruler
 set laststatus=2
 " 设置tab键占4个字符长度
 set tabstop=4
+" 设置编辑状态时按退格键退回缩进的长度
+set softtabstop=4
 " 设置缩进占4个字符长度
 set shiftwidth=4
+" 设置tab键转换为空格键
+set expandtab
 " 搜索时忽略大小写
 set ignorecase
 " 高亮显示搜索匹配结果
@@ -63,14 +67,10 @@ set cursorline
 
 " 设置tags文件的路径
 set tags=./tags;,tags
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" all kinds of mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 插入模式下，按下jj相当于esc
+" 插入模式下，按下jj或JJ相当于esc
 inoremap jj <esc>
+inoremap JJ <esc>
 " 禁用箭头键
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
@@ -81,10 +81,15 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 " 快速切换窗口
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" 命令行模式下，让<C-p>、<C-n>组合键像<Up>、<Down>一样有过滤功能
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+" 文件类型为Makefile时，避免将tab转换成空格
+autocmd Filetype make set noexpandtab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
