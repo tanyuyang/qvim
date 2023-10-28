@@ -23,6 +23,9 @@ filetype plugin on
 " 加载基于文件类型的缩进
 filetype indent on
 
+" 激活matchit.vim，该插件可以扩展%用于匹配xml标签
+runtime macros/matchit.vim
+
 " 显示行号
 set number
 " 显示模式
