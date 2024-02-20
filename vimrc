@@ -67,6 +67,7 @@ set cursorline
 
 " 使用配色方案
 " colorscheme molokai
+" colorscheme tokyonight
 
 " 设置tags文件的路径
 set tags=./tags;,tags
@@ -159,24 +160,23 @@ autocmd Filetype make set noexpandtab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gutentags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+" 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 " let g:gutentags_project_root = ['.git', '.svn', '.root', '.project']
-" 所生成的数据文件的文件名
-" 文件名 = tags文件的工程绝对路径 + $(gutentags_ctags_tagfile)
+" 数据库文件的文件名 = 项目工程绝对路径 + $(gutentags_ctags_tagfile)
 " let g:gutentags_ctags_tagfile = 'tags'
-" 可以配置gutentags插件同时支持ctags和gtags
+" 配置gutentags插件支持ctags
 " let g:gutentags_modules = []
 " if executable('ctags')
 " 	let g:gutentags_modules += ['ctags']
 " endif
-" 建议还是不要打开对gtags的支持了，cscope足够使用了
+" 配置gutentags插件支持gtags
 " if executable('gtags-cscope') && executable('gtags')
 " 	let g:gutentags_modules += ['gtags_cscope']
 " endif
-" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+" 将自动生成的数据库文件全部放入~/.cache/tags目录中，避免污染工程目录
 " let s:vim_tags = expand('~/.cache/tags')
 " let g:gutentags_cache_dir = s:vim_tags
-" 检测 ~/.cache/tags 不存在就新建
+" 检测~/.cache/tags/是否存在，如若不存在就新建
 " if !isdirectory(s:vim_tags)
 "    silent! call mkdir(s:vim_tags, 'p')
 " endif
@@ -241,9 +241,9 @@ autocmd Filetype make set noexpandtab
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
-" nnoremap <leader>t :NERDTreeToggle<CR>
+" nnoremap <silent><F2> :NERDTreeToggle<CR>
 " 定位当前活动缓冲区
-" nnoremap <leader>g :NERDTreeFind<CR>
+" nnoremap <silent><F3> :NERDTreeFind<CR>
 " 右边显示
 " let g:NERDTreeWinPos='right'
 " 忽略以下文件的显示
