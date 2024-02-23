@@ -257,24 +257,18 @@ autocmd Filetype make set noexpandtab
 " <leader>f	默认占用，搜索文件
 " <leader>b	默认占用，搜索当前buffer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:Lf_HideHelp = 1
-" let g:Lf_UseCache = 0
-" let g:Lf_UseVersionControlTool = 0
-" let g:Lf_IgnoreCurrentBufferName = 1
+" 自动生成gtags数据库
+" g:Lf_GtagsAutoGenerate = 1
 " 打开MRU列表
 " nnoremap <silent><leader>m :Leaderf! mru<CR>
 " 打开Function列表
 " nnoremap <silent><leader>z :Leaderf! function<CR>
 " 打开Tag列表
-" nnoremap <silent><leader>v :Leaderf! bufTag<CR>
+" nnoremap <silent><leader>x :Leaderf! bufTag<CR>
 " 打开rg模糊搜索的命令行交互界面
 " nnoremap <silent><leader>r :LeaderfRgInteractive<CR>
 " search word under cursor, the pattern is treated as regex, and enter normal mode directly
 " nnoremap <silent><leader>s :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
-" search visually selected text literally, don't quit LeaderF after accepting an entry
-" xnoremap <silent><leader>s :<C-U><C-R>=printf("Leaderf! rg -F --stayOpen -e %s ", leaderf#Rg#visual())<CR><CR>
-" recall last search. If the result window is closed, reopen it.
-" nnoremap <silent><leader>a :<C-U>Leaderf! rg --recall<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
