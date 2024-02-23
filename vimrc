@@ -258,7 +258,7 @@ autocmd Filetype make set noexpandtab
 " <leader>b	默认占用，搜索当前buffer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动生成gtags数据库
-" g:Lf_GtagsAutoGenerate = 1
+" let g:Lf_GtagsAutoGenerate = 1
 " 打开MRU列表
 " nnoremap <silent><leader>m :Leaderf! mru<CR>
 " 打开Function列表
