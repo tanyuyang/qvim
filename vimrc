@@ -259,6 +259,12 @@ autocmd Filetype make set noexpandtab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动生成gtags数据库
 " let g:Lf_GtagsAutoGenerate = 1
+" 限制MRU文件列表最大20个
+" let g:Lf_MruMaxFiles=20
+" buffer列表快速选择模式
+" let g:Lf_QuickSelect=1
+" 快速选择模式下，以tab模式打开buffer
+" let g:Lf_QuickSelectAction='t'
 " 打开MRU列表
 " nnoremap <silent><leader>m :Leaderf! mru<CR>
 " 打开Function列表
