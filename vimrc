@@ -22,7 +22,6 @@ filetype on
 filetype plugin on
 " 加载基于文件类型的缩进
 filetype indent on
-
 " 激活matchit.vim，该插件可以扩展%用于匹配xml标签
 runtime macros/matchit.vim
 
@@ -116,18 +115,6 @@ autocmd Filetype make set noexpandtab
 " 	endif
 " 	set csverb
 " endif
-
-" 查找调用本函数的函数
-" nnoremap <silent><leader>c :cs f c <C-R>=expand("<cword>")<CR><CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" gtags
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 如果安装了global，global有三个命令：global gtags gtags-cscope
-" 其中gtags-cscope可以生成类似于cscope的数据库
-" 要想更好的使用gtags-cscope生成的数据库，还需要安装gutentags_plugs插件
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -136,7 +123,6 @@ autocmd Filetype make set noexpandtab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " call plug#begin('~/.vim/plugged')
 "
-" 定义插件，默认用法
 " Plug 'tpope/vim-surround'
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'skywind3000/vim-auto-popmenu'
@@ -147,12 +133,9 @@ autocmd Filetype make set noexpandtab
 " Plug 'preservim/nerdcommenter'
 " Plug 'itchyny/lightline.vim'
 " Plug 'itchyny/vim-gitbranch'
-" Use release branch (recommend)
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"
-" 设置插件更新后的钩子
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-"
+
 " call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -193,20 +176,6 @@ autocmd Filetype make set noexpandtab
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" gutentags_plus
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 虽然gtags自带对cscope的支持，gutentags也配置了生成类似cscope的数据库
-" 但是还需要自动添加gtags-cscope数据库的插件，这个插件就是gutentags_plus
-" 先取消插件的默认映射
-" let g:gutentags_plus_nomap = 1
-" 查找调用本函数的函数
-" noremap <silent> <leader>c :GscopeFind c <C-R><C-W><cr>
-" 注意：这个插件和NERDTree插件有一点点冲突，这个插件可能要求vim在打开文件时
-"       不能有其它buffer存在，所以如果NERDTree配置了进入vim时自动打开的话，这就有问题了
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-auto-popmenu
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 设定需要生效的文件类型，如果是“*”的话，代表所有类型
@@ -222,22 +191,12 @@ autocmd Filetype make set noexpandtab
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YouCompleteMe
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:ycm_server_python_interpreter='/usr/bin/python'
-" let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-" let g:ycm_show_diagnostics_ui=0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Close the tab if NERDTree is the only window remaining in it.
 " autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Open the existing NERDTree on each new tab.
 " autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-" 下面这行配置和gutentags_plus插件有冲突，看情况打开这行配置
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
@@ -257,24 +216,16 @@ autocmd Filetype make set noexpandtab
 " <leader>f	默认占用，搜索文件
 " <leader>b	默认占用，搜索当前buffer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 自动生成gtags数据库
+" let g:Lf_MruMaxFiles=50
 " let g:Lf_GtagsAutoGenerate = 1
-" 限制MRU文件列表最大20个
-" let g:Lf_MruMaxFiles=20
-" buffer列表快速选择模式
-" let g:Lf_QuickSelect=1
-" 快速选择模式下，以tab模式打开buffer
-" let g:Lf_QuickSelectAction='t'
-" 打开MRU列表
-" nnoremap <silent><leader>m :Leaderf! mru<CR>
-" 打开Function列表
-" nnoremap <silent><leader>z :Leaderf! function<CR>
-" 打开Tag列表
-" nnoremap <silent><leader>x :Leaderf! bufTag<CR>
-" 打开rg模糊搜索的命令行交互界面
-" nnoremap <silent><leader>r :LeaderfRgInteractive<CR>
-" search word under cursor, the pattern is treated as regex, and enter normal mode directly
-" nnoremap <silent><leader>s :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+" let g:Lf_ShortcutF = "<leader>ff"
+" noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+" noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+" noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+" noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+" noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+" noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -332,3 +283,13 @@ autocmd Filetype make set noexpandtab
 " nnoremap <silent><F6> :tabnext<CR>
 " nnoremap <silent><F7> :tabclose<CR>
 " nnoremap <silent><F8> :tabonly<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" asyncomplete
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
