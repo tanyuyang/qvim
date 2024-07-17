@@ -129,6 +129,11 @@ autocmd Filetype make set noexpandtab
 " Plug 'skywind3000/vim-dict'
 " Plug 'skywind3000/gutentags_plus'
 " Plug 'mhinz/vim-startify'
+" Plug 'voldikss/vim-floaterm'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'tpope/vim-fugitive'
+" Plug 'zivyangll/git-blame.vim'
 " Plug 'preservim/nerdtree'
 " Plug 'preservim/nerdcommenter'
 " Plug 'itchyny/lightline.vim'
@@ -200,9 +205,9 @@ autocmd Filetype make set noexpandtab
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 " 打开/关闭NERDTree窗口
-" nnoremap <silent><F2> :NERDTreeToggle<CR>
+" nnoremap <silent><F3> :NERDTreeToggle<CR>
 " 定位当前活动缓冲区
-" nnoremap <silent><F3> :NERDTreeFind<CR>
+" nnoremap <silent><F4> :NERDTreeFind<CR>
 " 右边显示
 " let g:NERDTreeWinPos='right'
 " 忽略以下文件的显示
@@ -292,4 +297,15 @@ autocmd Filetype make set noexpandtab
 " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-airline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:airline#extensions#tabline#enabled = 2
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+" nmap <Space>h <Plug>AirlineSelectPrevTab
+" nmap <Space>l <Plug>AirlineSelectNextTab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
