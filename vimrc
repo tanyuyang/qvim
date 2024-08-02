@@ -66,7 +66,6 @@ set cursorline
 
 " 使用配色方案
 " colorscheme molokai
-" colorscheme tokyonight
 
 " 设置tags文件的路径
 set tags=./tags;,tags
@@ -84,10 +83,6 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 " 快速切换窗口
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 " 命令行模式下，让<C-p>、<C-n>组合键像<Up>、<Down>一样有过滤功能
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
